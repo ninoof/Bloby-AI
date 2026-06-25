@@ -93,4 +93,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ios-app
-          path: src-tauri/gen/apple/Debug/**/*.app
+          path: |
+            src-tauri/gen/apple/build/**/*.ipa
+            src-tauri/gen/apple/build/**/*.app
