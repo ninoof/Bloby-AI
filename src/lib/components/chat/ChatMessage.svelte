@@ -101,8 +101,8 @@
   <div class="max-w-[75%] sm:max-w-[65%]">
     <div class="px-5 py-3.5 rounded-2xl rounded-tr-sm
       {isOocMsg
-        ? 'bg-ryokan-accent/[0.07] border border-ryokan-accent/25 text-ryokan-accent italic'
-        : 'bg-[#1e1e22] border border-white/[0.04] text-gray-200'}
+        ? 'bg-ryokan-accent/[0.16] border border-ryokan-accent/30 text-[#ffd9b2] italic'
+        : 'bg-[#261c16] border border-[#4b3528] text-[#f3e3ce]'}
       text-[15px] leading-relaxed break-words shadow-sm transition-colors">
       {displayText}
     </div>
@@ -115,7 +115,7 @@
       {#if character?.avatarUrl}
         <img src={character.avatarUrl} alt={character.name} class="w-full h-full object-cover select-none"/>
       {:else}
-        <div class="w-full h-full {character?.color ?? 'bg-ryokan-surface'} flex items-center justify-center text-white font-bold text-sm">
+        <div class="w-full h-full {character?.color ?? 'bg-ryokan-surface'} flex items-center justify-center text-[#f3e3ce] font-bold text-sm">
           {character?.initials ?? (character?.name?.[0]?.toUpperCase() ?? 'A')}
         </div>
       {/if}
@@ -129,7 +129,7 @@
             <textarea
               bind:value={editValue}
               onkeydown={handleEditKeydown}
-              class="w-full bg-transparent text-gray-200 text-sm leading-relaxed
+              class="w-full bg-transparent text-[#f3e3ce] text-sm leading-relaxed
                      resize-none outline-none px-3.5 py-3 block"
               style="height: {editHeight}px;"
             ></textarea>
@@ -386,7 +386,7 @@
   :global(.prose-custom) {
     font-size: 1rem;
     line-height: 1.8;
-    color: #e5e5ea;
+    color: #f3e3ce;
   }
   :global(.prose-custom p)            { margin-bottom: 1.2em; }
   :global(.prose-custom p:last-child) { margin-bottom: 0; }

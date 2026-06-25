@@ -144,7 +144,7 @@
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-ryokan-accent/10 rounded-full blur-[140px] pointer-events-none"></div>
 
   <div
-    class="w-full sm:max-w-[360px] mx-0 sm:mx-4 bg-[#1c1c1e]/95 backdrop-blur-xl sm:rounded-3xl rounded-t-3xl shadow-2xl overflow-hidden border border-white/[0.06]"
+    class="w-full sm:max-w-[360px] mx-0 sm:mx-4 bg-[#fcf5eb]/95 backdrop-blur-xl sm:rounded-3xl rounded-t-3xl shadow-2xl overflow-hidden border border-[#e4cfae]"
     in:fly={{ y: 24, duration: 350, delay: 80 }}
   >
     <div class="flex justify-center pt-3 pb-1 sm:hidden">
@@ -161,14 +161,14 @@
             <path d="M13 7v2M13 17v2M7 13H5M21 13h-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="stroke-ryokan-accent/60"/>
           </svg>
         </div>
-        <h1 class="text-[17px] font-semibold text-white tracking-[-0.3px]">Welcome</h1>
-        <p class="text-[13px] text-white/35 mt-1 leading-snug">Choose your language and connect<br>an AI provider to get started.</p>
+        <h1 class="text-[17px] font-semibold text-[#4a3b2d] tracking-[-0.3px]">Welcome</h1>
+        <p class="text-[13px] text-[#7b6753] mt-1 leading-snug">Choose your language and connect<br>an AI provider to get started.</p>
       </div>
 
       <div class="h-px bg-white/[0.06] -mx-6"></div>
 
       <div class="space-y-2.5">
-        <p class="text-[11px] font-medium text-white/30 uppercase tracking-[0.08em]">Language</p>
+        <p class="text-[11px] font-medium text-[#7b6753] uppercase tracking-[0.08em]">Language</p>
         <div class="flex gap-2">
           {#each [{ val: 'English', display: 'English' }, { val: 'German', display: 'Deutsch' }] as lang}
             <button
@@ -189,9 +189,9 @@
       </div>
 
       <div class="space-y-2.5">
-        <p class="text-[11px] font-medium text-white/30 uppercase tracking-[0.08em]">AI Provider</p>
+        <p class="text-[11px] font-medium text-[#7b6753] uppercase tracking-[0.08em]">AI Provider</p>
 
-        <div class="flex gap-1 p-1 rounded-xl bg-black/20 border border-white/[0.06]">
+        <div class="flex gap-1 p-1 rounded-xl bg-white/70 border border-[#e5d0b3]">
           {#each (['local', 'cloud'] as ProviderTab[]) as tab}
             <button
               type="button"
@@ -200,8 +200,8 @@
                 flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-[10px] border
                 text-[12px] font-semibold tracking-wide transition-all duration-150
                 {activeTab === tab
-                  ? 'border-ryokan-accent/25 bg-white/[0.07] text-ryokan-accent'
-                  : 'border-transparent bg-transparent text-white/30 hover:text-white/55'}
+                  ? 'border-ryokan-accent/25 bg-ryokan-accent/10 text-ryokan-accent'
+                  : 'border-transparent bg-transparent text-[#8b745f] hover:text-[#4a3b2d]'}
               "
             >
               {#if tab === 'local'}

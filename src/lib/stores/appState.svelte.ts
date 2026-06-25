@@ -10,6 +10,7 @@ export interface ApiSettings {
   presencePenalty: number;
   contextLimit: number;
   thinkingBudget: number;
+  autoContinue: boolean;
 }
 
 export const appState = $state({
@@ -31,5 +32,6 @@ export const appState = $state({
     maxTokens: 300,
     presencePenalty: 1.12,
     contextLimit: 4096,
+    autoContinue: false,
   } as ApiSettings
 });

@@ -2,33 +2,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 @theme {
-  --color-ryokan-bg: #131314;
-  --color-ryokan-surface: #2c2c2e;
-  --color-ryokan-sidebar: #1e1f20;
-  --color-ryokan-accent: #d4b483;
-  --color-ryokan-text: #e5e5ea;
+  --color-ryokan-bg: #15110d;
+  --color-ryokan-surface: #1f1712;
+  --color-ryokan-sidebar: #241a14;
+  --color-ryokan-accent: #c27a43;
+  --color-ryokan-text: #f3e3ce;
   --always-black: 0 0% 0%;
   --border-300: 51 16.5% 84.5%;
 }
 
 :root {
-  --accent: #d4b483;
-  --accent-rgb: 212, 180, 131;
+  --accent: #c27a43;
+  --accent-rgb: 194, 122, 67;
 
-  --surface-1: rgba(255, 255, 255, 0.03);
-  --surface-2: rgba(255, 255, 255, 0.06);
-  --surface-hover: rgba(255, 255, 255, 0.07);
+  --surface-1: rgba(255, 255, 255, 0.05);
+  --surface-2: rgba(255, 255, 255, 0.08);
+  --surface-hover: rgba(255, 255, 255, 0.12);
 
-  --border-subtle: rgba(255, 255, 255, 0.06);
-  --border-accent: rgba(212, 180, 131, 0.28);
-  --border-accent-hover: rgba(212, 180, 131, 0.42);
+  --border-subtle: rgba(243, 227, 206, 0.12);
+  --border-accent: rgba(194, 122, 67, 0.28);
+  --border-accent-hover: rgba(194, 122, 67, 0.38);
 
   --radius-card: 14px;
   --radius-xl: 16px;
 }
 
 body {
-  background-color: var(--color-ryokan-bg);
+  background: linear-gradient(135deg, #1a130f 0%, #22170f 100%);
   color: var(--color-ryokan-text);
   margin: 0;
   font-family: 'Inter', system-ui, sans-serif;

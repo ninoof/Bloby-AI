@@ -19,6 +19,7 @@
     if (map.apiKey) appState.apiSettings.apiKey = map.apiKey;
     if (map.model) appState.apiSettings.model = map.model;
     if (map.aiLanguage) appState.apiSettings.aiLanguage = map.aiLanguage;
+    if (map.auto_continue) appState.apiSettings.autoContinue = map.auto_continue === 'true';
 
     appState.isOnboarding = map['onboarding_completed'] !== 'true';
     loaded = true;

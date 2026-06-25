@@ -173,7 +173,7 @@
       character:      appState.activeCharacter,
       apiSettings:    appState.apiSettings,
       recentMessages: chatState.currentMessages,
-      userPrompt:     undefined as string | undefined,
+      userPrompt:     prompt as string | undefined,
       role: activeRole ? {
         name:      activeRole.name,
         bio:       activeRole.bio,
@@ -209,16 +209,16 @@
   }
 
   async function sendMessage() {
-    if (!inputText.trim() || isBlocked) return;
-    const rawPrompt = inputText;
+    if (isBlocked) return;
+    const rawPrompt = inputText.trim();
     inputText = '';
 
-    const prompt = isOOC ? `[OOC: ${rawPrompt}]` : rawPrompt;
+    const prompt = isOOC ? `[OOC: ${rawPrompt || 'Please continue the scene.'}]` : (rawPrompt || 'Please continue the scene.');
     isOOC = false;
 
     pendingUserMessage = prompt;
     autoscroll = true;
-    await generate(prompt, true);
+    await generate(prompt, rawPrompt.length > 0);
   }
 
   async function handleRetry({ msgId }: { msgId: string }) {
@@ -299,6 +299,7 @@
   async function stopGeneration() {
     await invoke('stop_generation');
   }
+
 </script>
 
 <div class="flex flex-col h-full overflow-hidden bg-ryokan-bg relative">

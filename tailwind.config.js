@@ -4,9 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        'ryokan-bg': '#121212',
-        'ryokan-surface': '#1E1E1E',
-        'ryokan-accent': '#10B981', 
+        'ryokan-bg': '#f7efe6',
+        'ryokan-surface': '#fcf5eb',
+        'ryokan-sidebar': '#f2e3d2',
+        'ryokan-accent': '#c97b45',
+        'ryokan-text': '#4a3b2d',
       }
     },
   },

@@ -20,13 +20,11 @@
   } = $props();
 
   function handleSend() {
-    if (value.trim().length > 0) {
-      onSend?.();
-      setTimeout(() => {
-        const ta = document.getElementById('chat-input-textarea');
-        if (ta) ta.style.height = '60px';
-      }, 10);
-    }
+    onSend?.();
+    setTimeout(() => {
+      const ta = document.getElementById('chat-input-textarea');
+      if (ta) ta.style.height = '60px';
+    }, 10);
   }
 
   function handleKeydown(e: KeyboardEvent) {
@@ -77,10 +75,10 @@
           rows="1"
           class="w-full bg-transparent px-5 pt-4 pb-2 outline-none resize-none text-[15px] leading-relaxed placeholder:select-none
             {isOOC
-              ? 'text-ryokan-text placeholder-ryokan-accent/60 italic'
+              ? 'text-[#ffd9b2] placeholder-ryokan-accent/60 italic'
               : isSummarizing
-                ? 'text-ryokan-text placeholder-ryokan-accent/35 italic'
-                : 'text-ryokan-text placeholder-[#44444c]'}"
+                ? 'text-[#f3e3ce] placeholder-ryokan-accent/35 italic'
+                : 'text-[#f3e3ce] placeholder-[#8c7563]'}"
           style="
             min-height: 60px;
             max-height: 400px;
@@ -92,12 +90,13 @@
 
         <div class="flex items-center justify-between px-3 pb-3 pt-1">
 
-          <button
-            onclick={toggleOOC}
-            title={isOOC ? m.chat_input_ooc_title_active() : m.chat_input_ooc_title_inactive()}
-            class="ooc-btn"
-            class:ooc-btn--active={isOOC}
-          >
+          <div class="flex items-center gap-2">
+            <button
+              onclick={toggleOOC}
+              title={isOOC ? m.chat_input_ooc_title_active() : m.chat_input_ooc_title_inactive()}
+              class="ooc-btn"
+              class:ooc-btn--active={isOOC}
+            >
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             </svg>
@@ -106,12 +105,10 @@
 
           <button
             onclick={() => isGenerating ? onStop?.() : handleSend()}
-            disabled={!isGenerating && value.trim().length === 0}
             class="send-btn"
-            class:send-btn--active={!isGenerating && value.trim().length > 0 && !isOOC}
-            class:send-btn--ooc={!isGenerating && value.trim().length > 0 && isOOC}
+            class:send-btn--active={!isGenerating && !isOOC}
+            class:send-btn--ooc={!isGenerating && isOOC}
             class:send-btn--stop={isGenerating}
-            class:send-btn--disabled={!isGenerating && value.trim().length === 0}
           >
             {#if isGenerating}
               <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
@@ -124,12 +121,12 @@
               </svg>
             {/if}
           </button>
-
         </div>
       </div>
     </div>
 
   </div>
+</div>
 </div>
 
 <style>
@@ -150,9 +147,9 @@
     padding: 6px 12px;
     height: 38px;
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    background: rgba(255, 255, 255, 0.04);
-    color: rgba(255, 255, 255, 0.32);
+    border: 1px solid rgba(243, 227, 206, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(243, 227, 206, 0.82);
     font-family: inherit;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -161,21 +158,21 @@
   }
 
   .ooc-btn:hover {
-    background: rgba(255, 255, 255, 0.07);
-    color: rgba(255, 255, 255, 0.60);
-    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.12);
+    color: #f3e3ce;
+    border-color: rgba(194, 122, 67, 0.28);
   }
 
   .ooc-btn--active {
-    background: rgba(212, 180, 131, 0.10);
-    color: #d4b483;
-    border-color: rgba(212, 180, 131, 0.28);
+    background: rgba(194, 122, 67, 0.16);
+    color: #ffd9b2;
+    border-color: rgba(194, 122, 67, 0.28);
   }
 
   .ooc-btn--active:hover {
-    background: rgba(212, 180, 131, 0.15);
-    color: #dfc090;
-    border-color: rgba(212, 180, 131, 0.38);
+    background: rgba(194, 122, 67, 0.22);
+    color: #ffe3c0;
+    border-color: rgba(194, 122, 67, 0.38);
   }
 
   .send-btn {
@@ -194,36 +191,29 @@
 
   .send-btn:active { transform: scale(0.92); }
 
-  .send-btn--disabled {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.18);
-    cursor: not-allowed;
-  }
-
   .send-btn--active {
-    background: #f0f0f2;
-    border-color: rgba(255, 255, 255, 0.20);
-    color: #0e0e12;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255,255,255,0.08) inset;
+    background: #c27a43;
+    border-color: rgba(194, 122, 67, 0.34);
+    color: #fff5e8;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255,255,255,0.15) inset;
   }
 
   .send-btn--active:hover {
-    background: #ffffff;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255,255,255,0.12) inset;
+    background: #d18b4e;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255,255,255,0.18) inset;
     transform: translateY(-1px);
   }
 
   .send-btn--ooc {
-    background: #d4b483;
-    border-color: rgba(212, 180, 131, 0.50);
-    color: #0e0e12;
-    box-shadow: 0 2px 14px rgba(212, 180, 131, 0.30), 0 0 0 1px rgba(255,255,255,0.08) inset;
+    background: #a96430;
+    border-color: rgba(194, 122, 67, 0.50);
+    color: #fffaf4;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255,255,255,0.1) inset;
   }
 
   .send-btn--ooc:hover {
-    background: #dfc090;
-    box-shadow: 0 4px 20px rgba(212, 180, 131, 0.42);
+    background: #b77035;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transform: translateY(-1px);
   }
 
