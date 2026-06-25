@@ -78,6 +78,11 @@ jobs:
           xcode-select -p
           sudo xcodebuild -runFirstLaunch
 
+      - name: Initialize Tauri iOS project
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: cargo tauri ios init
+
       - name: Build iOS app bundle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
