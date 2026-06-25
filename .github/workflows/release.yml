@@ -86,7 +86,7 @@ jobs:
       - name: Build iOS app bundle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          APPLE_DEVELOPMENT_TEAM: "KRage Team"
+          APPLE_DEVELOPMENT_TEAM: "KRage Industry Team"
         run: cargo tauri ios build --export-method debugging --skip-signing
 
       - name: Upload iOS artifact
